@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Race</title>
+</head>
+<body>
+<h2>Promise.race Example</h2>
+<script>
+    const fastPromise = new Promise(function(resolve) {
+        setTimeout(function() {
+            resolve("Fast Promise resolved in 1 second");
+        }, 1000);
+    });
+    const slowPromise = new Promise(function(resolve) {
+        setTimeout(function() {
+            resolve("Slow Promise resolved in 3 seconds");
+        }, 3000);
+    });
+    Promise.race([fastPromise, slowPromise])
+        .then(function(result) {
+            console.log("Winning Result:", result);
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promisification Task</title>
+</head>
+<body>
+<script>
+// Callback based function
+function checkStatus(callback) {
+    setTimeout(() => {
+        callback("Status OK");
+    }, 2000);
+}
+// Promisified version
+function checkStatusPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Status OK");
+        }, 2000);
+    });
+}
+// Using callback
+checkStatus((message) => {
+    console.log("Callback:", message);
+});
+// Using Promise
+checkStatusPromise()
+    .then(result => console.log("Promise:", result))
+    .catch(error => console.log(error));
+</script>
+</body>
+</html>

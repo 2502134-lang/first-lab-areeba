@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Error Handling</title>
+</head>
+<body>
+<h2>Login & Get Profile with Error Handling</h2>
+<script>
+    function login() {
+        return new Promise(function(resolve) {
+            setTimeout(function() {
+                console.log("Ahmad logged in successfully.");
+                resolve("Login Successful");
+            }, 1000);
+        });
+    }
+    function getProfile() {
+        return new Promise(function(resolve, reject) {
+            const networkError = true; // simulate error
+            setTimeout(function() {
+                if (!networkError) {
+                    resolve({
+                        name: "Ahmad",
+                        role: "Student"
+                    });
+                } else {
+                    reject("Network Error: Unable to fetch profile.");
+                }
+            }, 1000);
+        });
+    }
+    login()
+        .then(function() {
+            return getProfile();
+        })
+        .then(function(profile) {
+            console.log("Profile Data:", profile);
+        })
+        .catch(function(error) {
+            console.log("Error Caught:", error);
+        });
+</script>
+</body>
+</html>

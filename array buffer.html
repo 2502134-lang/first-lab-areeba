@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 2: ArrayBuffer and TextDecoder</title>
+</head>
+<body>
+    <h2>Task 2: Binary to Text</h2>
+    <script>
+        const encoder = new TextEncoder();
+        const myString = "Ahmad's secret message.";
+        const encodedData = encoder.encode(myString);
+        console.log("Encoded data (Uint8Array):", encodedData);
+        const decoder = new TextDecoder();
+        const decodedString = decoder.decode(encodedData);
+        console.log("Decoded string:", decodedString);
+        // 1. Create an ArrayBuffer of 16 bytes.
+        const buffer = new ArrayBuffer(16);
+        // 2. Use Uint8Array to fill it with some numbers.
+        const view = new Uint8Array(buffer);
+        for (let i = 0; i < view.length; i++) {
+            view[i] = 65 + i; 
+        }
+        console.log("Student Task - Filled Array:", view);
+        // 3. Use TextDecoder to attempt to decode the binary data.
+        const taskDecoder = new TextDecoder();
+        const result = taskDecoder.decode(view);
+        // 4. Observe what happens.
+        console.log("Student Task - Decoded Result:", result);
+    </script>
+</body>
+</html>

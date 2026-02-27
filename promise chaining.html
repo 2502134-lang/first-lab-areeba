@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+function login() {
+    return new Promise(function(resolve) {
+        setTimeout(function() {
+            resolve("Login Successful");
+        }, 1000);
+    });
+}
+function getProfile() {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve({ name: "Ahmad", age: 22 });
+        }, 1000);
+    });
+}
+login()
+.then(function(message) {
+    console.log(message);
+    return getProfile();
+})
+.then(function(profile) {
+    console.log(profile);
+})
+.catch(function(error) {
+    console.log("Error:", error);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Task</title>
+</head>
+<body>
+<h2>Callback Example Greeting Ayesha</h2>
+<script>
+    // Function that accepts name and callback
+    function sayHello(name, callback) {
+        setTimeout(function () {
+            const greetingMessage = "Hello " + name + "! Welcome to Web Technologies Lab.";
+            callback(greetingMessage);
+        }, 3000); 
+    }
+    // Ahmad calling the function for Ayesha
+    sayHello("Ayesha", function(message) {
+        console.log(message);
+    });
+</script>
+</body>
+</html>

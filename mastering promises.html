@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Task</title>
+</head>
+<body>
+
+<h2>Promise Example Download Image</h2>
+
+<script>
+    const downloadImage = new Promise(function(resolve, reject) {
+        
+        const downloadSuccessful = true; // change to false to simulate failure
+
+        setTimeout(function() {
+            if (downloadSuccessful) {
+                resolve("Image downloaded successfully from server: https://server.com/ayesha-profile.jpg");
+            } else {
+                reject("Error: Image download failed due to network issue.");
+            }
+        }, 2000); // 2 seconds delay
+    });
+    downloadImage
+        .then(function(result) {
+            console.log(result);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+</script>
+</body>
+</html>
